@@ -81,7 +81,7 @@ test('reducer - can be used with reduce', function (t) {
         {type: 'NEXT'}
     ];
     const finalState = actions.reduce(reducer, Map());
-    t.comment(finalState);
+
     t.true(finalState.equals(fromJS({
         winner: 'Trainspotting'
     })));

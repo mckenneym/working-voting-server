@@ -26,12 +26,11 @@ test('application logic - adds the entries to the state', function (t) {
 
 test('vote - creates a tally for the voted entry', function (t) {
     const state = Map({
-        pair: List('Trainspotting', '28 Days Later')
+        pair: List.of('Trainspotting', '28 Days Later')
     });
     const nextState = vote(state, 'Trainspotting');
-    //t.comment(nextState);
     t.true(nextState.equals(Map({
-        pair: List('Trainspotting', '28 Days Later'),
+        pair: List.of('Trainspotting', '28 Days Later'),
         tally: Map({
             'Trainspotting': 1
         })
@@ -41,16 +40,15 @@ test('vote - creates a tally for the voted entry', function (t) {
 
 test('vote - adds to existing tally for the voted entry', function (t) {
     const state = Map({
-        pair: List('Trainspotting', '28 Days Later'),
+        pair: List.of('Trainspotting', '28 Days Later'),
         tally: Map({
             'Trainspotting': 3,
             '28 Days Later': 2
         })
     });
     const nextState = vote(state, 'Trainspotting' );
-    //t.comment(nextState);
     t.true(nextState.equals(Map({
-        pair: List('Trainspotting', '28 Days Later'),
+        pair: List.of('Trainspotting', '28 Days Later'),
         tally: Map({
             'Trainspotting': 4,
             '28 Days Later': 2
